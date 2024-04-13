@@ -341,7 +341,7 @@ export const resetPassword = async(req,res,next)=>{
             throw new Error("Password doesn't meet the requirements")
         }
 
-        await userModel.findByIdAndUpdate(id,{password:argonHash(password)})
+        await userModel.findByIdAndUpdate(id, { password:await argonHash(password) }).select("+password");
         
         // res.status(200).render("resetPasssword/resetPassword")
         res.status(201).json({
