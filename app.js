@@ -13,7 +13,7 @@ const app = express();
 
 // Default Middleware
 app.use(cookieParser())
-app.use(cors({origin:"*",credential:false})) ; // Some API endpnt only will have cors not all
+app.use(cors({origin:"*",credential:true})) ; // Some API endpnt only will have cors not all
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
